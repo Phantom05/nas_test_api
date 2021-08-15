@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+    <title>API Server</title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <!-- CSS -->
@@ -16,37 +16,15 @@
 </head>
 <body>
 
+<h1>API Server</h1>
+<p>
+<ul>
+    <li>/api</li>
+    <li>/api/hello</li>
+    <li>/api/todos</li>
+    
+</ul>
+</p>
 
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-<p><a href="/about">About</a></p>
-<button id="btn" class="btn">버튼</button>
-
-<div id="list"></div>
-<script>
-  const apiAddress = `https://jsonplaceholder.typicode.com/todos`;
-  const listBox = document.getElementById('list');
-  document.getElementById('btn').addEventListener('click', function () {
-    console.log('click')
-    axios({
-      method: "get",
-      url   : '/users'
-    }).then(({data}) => {
-      console.log(data)
-      const getData = data?.list;
-      if (!getData) return;
-      getData.length = 30;
-      console.log(getData)
-      let i = getData.length;
-      listBox.innerHTML = "";
-      while (i--) {
-        const ptag = document.createElement('p')
-        ptag.textContent = getData[i].title
-        listBox.append(ptag)
-      }
-    })
-
-  })
-</script>
 </body>
 </html>
